@@ -1,0 +1,123 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    color: white;
+}
+
+#root {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+header.header {
+    background-color: green;
+    display: flex;
+}
+
+section.right-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+section.side-bar {
+    background-color: red;
+}
+
+section.main-content {
+    background-color: blue;
+    flex: 1;
+}
+
+section.weekly-goal {
+    border: 1px dotted white ;
+}
+
+section.recent-entries {
+    border: 1px dotted white ;
+}
+
+section.weekly-activity {
+    border: 1px dotted white ;
+}
+
+section.main-content-column-container {
+    display: flex;
+}
+
+/* Activity this week */
+.activity {
+  display: inline-block;
+  padding: 8px;
+  background: #222;
+  color: #ddd;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.title {
+  margin-bottom: 6px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 12px);
+  gap: 7px;
+  text-align: center;
+}
+
+.box {
+  width: 7px;
+  height: 7px;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  justify-self: center;
+}
+
+.box.filled {
+  background: #ddd;
+  border-color: #ddd;
+}
+/* End of activity this week */
+
+/* Weekly goal progress bar */
+.progress-card {
+  display: inline-block;
+  padding: 6px;
+  background: #222;
+  color: #ddd;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.label {
+  margin-bottom: 6px;
+}
+
+.progress {
+  display: flex;
+  width: 72px;
+  height: 12px;
+}
+
+.segment {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.filled {
+  background: #e5e5e5;
+  border-right: 1px solid #ccc;
+}
+
+.remaining {
+  border: 1px dotted #aaa;
+  background:
+    radial-gradient(#aaa 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+/* End of weekly goal progress bar */
