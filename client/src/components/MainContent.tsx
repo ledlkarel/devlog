@@ -1,6 +1,8 @@
-import RecenetEntries from "./RecentEntries"
-import WeeklyActivity from "./WeeklyActivity"
-import WeeklyGoal from "./WeeklyGoal"
+import { Route, Routes } from "react-router-dom"
+import Entries from "../pages/Entries"
+import Dashboard from "../pages/Dashboard"
+import Goals from "../pages/Goals"
+import Profile from "../pages/Profile"
 
 export default function MainContent() {
     return (
@@ -11,11 +13,12 @@ export default function MainContent() {
                 <span className="stat">[ Entries: 12 ]</span>
                 <span className="stat">[ Best: 7d ]</span>
             </section>
-            <section className="main-content-column-container">
-                <RecenetEntries />
-                <WeeklyGoal />
-            </section>
-            <WeeklyActivity />
+            <Routes>
+                <Route path="/" element={<Dashboard />}/>
+                <Route path="/entries" element={<Entries />} />
+                <Route path="/goals" element={<Goals />} />
+                <Route path="profile" element={<Profile />} />
+            </Routes>
         </section>
     )
 }

@@ -47,7 +47,7 @@ section.side-bar h1 {
     font-weight: 400;
 }
 
-section.side-bar ul {
+section.side-bar > nav {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -57,15 +57,15 @@ section.side-bar ul {
     list-style: none;
 }
 
-section.side-bar li {
+section.side-bar > nav > nav {
     color: #c7c7c7;
 }
 
-section.side-bar li:first-child {
+section.side-bar > nav > nav:first-child {
     color: #f2f2f2;
 }
 
-section.side-bar li:last-child {
+section.side-bar > nav > nav:last-child {
     margin-top: auto;
     padding-top: 32px;
 }
@@ -266,7 +266,7 @@ section.weekly-goal::after {
         padding: 16px 12px;
     }
 
-    section.side-bar ul {
+    section.side-bar > nav {
         padding-right: 12px;
         padding-left: 12px;
     }
@@ -321,7 +321,7 @@ section.weekly-goal::after {
     }
 
     section.side-bar h1,
-    section.side-bar ul {
+    section.side-bar > nav {
         padding-right: 8px;
         padding-left: 8px;
     }
