@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom"
 import Entries from "../pages/Entries"
 
 export default function SideBar() {
@@ -6,10 +6,10 @@ export default function SideBar() {
         <section className="side-bar">
             <h1>DevLog</h1>
             <nav>
-                <Link to="/">Dashboard</Link>
-                <Link to="/entries">Entries</Link>
-                <Link to="/goals">Goals</Link>
-                <Link to="/profile">Profile</Link>
+                <NavLink to="/">Dashboard</NavLink>
+                <NavLink to="/entries">Entries</NavLink>
+                <NavLink to="/goals">Goals</NavLink>
+                <NavLink to="/profile">Profile</NavLink>
             </nav>
         </section>
     )

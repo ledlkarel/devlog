@@ -57,17 +57,29 @@ section.side-bar > nav {
     list-style: none;
 }
 
-section.side-bar > nav > nav {
+section.side-bar > nav > a {
     color: #c7c7c7;
+    text-decoration: none;
 }
 
-section.side-bar > nav > nav:first-child {
+section.side-bar > nav > a.active {
     color: #f2f2f2;
 }
 
-section.side-bar > nav > nav:last-child {
+section.side-bar > nav > a:last-child {
     margin-top: auto;
     padding-top: 32px;
+}
+
+section.side-bar > nav > a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+section.side-bar > nav > a:focus-visible {
+    outline: 1px dashed #e5e5e5;
+    outline-offset: 5px;
 }
 
 /* Dashboard header */
