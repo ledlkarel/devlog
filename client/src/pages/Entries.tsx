@@ -1,7 +1,14 @@
+import Entry from "../components/Entry";
+
 export default function Entries() {
     return (
-        <div>
-            <p>all entreis</p>
+        <div className="entry-container">
+            <Entry></Entry>
+            <Entry></Entry>
+            <Entry></Entry>
+            <Entry></Entry>
+            <Entry></Entry>
+            <Entry></Entry>
         </div>
     )
 }

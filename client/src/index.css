@@ -648,3 +648,16 @@ section.weekly-goal::after {
         gap: 6px;
     }
 }
+
+div.entry-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    font-size: 13px;
+    columns: 3;
+}
+
+div.entry-component {
+    border: 1px dotted white ;
+    min-width: 195px;
+}
