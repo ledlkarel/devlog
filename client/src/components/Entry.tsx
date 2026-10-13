@@ -1,11 +1,6 @@
-type EntryProps = {
-    title: string
-    minutes: number
-    date: string
-    tags: string[]
-}
+import { EntryData } from "../types/entry"
 
-export default function Entry({ title, minutes, date, tags }: EntryProps) {
+export default function Entry({ title, minutes, date, tags }: EntryData) {
     const formattedDate = new Intl.DateTimeFormat('en', {
         month: 'short',
         day: 'numeric',
