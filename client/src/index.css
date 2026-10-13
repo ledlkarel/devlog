@@ -263,6 +263,299 @@ section.weekly-goal::after {
     right: -1px;
 }
 
+/* New entry dialog */
+.entry-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    color-scheme: dark;
+    font-size: 14px;
+}
+
+.entry-dialog * {
+    box-sizing: border-box;
+}
+
+.entry-dialog__backdrop {
+    position: fixed;
+    inset: 0;
+    padding: 24px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: opacity 300ms ease-out;
+}
+
+.entry-dialog__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+}
+
+.entry-dialog__panel {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 460px;
+    margin: auto 0;
+    padding: 28px;
+    border: 1px solid #707070;
+    background-color: #202020;
+    color: #e5e5e5;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.entry-dialog__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.entry-dialog__title {
+    margin: 0;
+    color: #f5f5f5;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.entry-dialog__close {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #aaa;
+    font: inherit;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.entry-dialog__close:hover {
+    background-color: #303030;
+    color: #fff;
+}
+
+.entry-dialog__text {
+    margin: 8px 0 0;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.entry-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    font-size: 12px;
+}
+
+.entry-form__field input {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #535353;
+    border-radius: 0;
+    background-color: #181818;
+    color: #f2f2f2;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.entry-form__field input::placeholder {
+    color: #858585;
+}
+
+.entry-form__field input:hover {
+    border-color: #858585;
+}
+
+.entry-form__field input:focus {
+    border-color: #e5e5e5;
+    outline: 1px solid #e5e5e5;
+    outline-offset: 2px;
+    background-color: #1c1c1c;
+}
+
+.entry-form__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 16px;
+}
+
+.entry-form__tags {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.entry-form__tags legend {
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 12px;
+}
+
+.entry-form__optional {
+    margin-left: 6px;
+    color: #aaa;
+    font-size: 11px;
+}
+
+.entry-form__tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.entry-form__tag {
+    position: relative;
+    cursor: pointer;
+}
+
+.entry-form__tag input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.entry-form__tag span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 38px;
+    padding: 7px 12px;
+    border: 1px solid #535353;
+    color: #bdbdbd;
+    font-size: 12px;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.entry-form__tag span::before {
+    content: "+";
+}
+
+.entry-form__tag:hover span {
+    border-color: #858585;
+    color: #fff;
+}
+
+.entry-form__tag input:checked + span {
+    border-color: #e5e5e5;
+    background-color: #e5e5e5;
+    color: #202020;
+}
+
+.entry-form__tag input:checked + span::before {
+    content: "✓";
+}
+
+.entry-dialog__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 4px;
+    padding-top: 20px;
+    border-top: 1px solid #404040;
+}
+
+.entry-dialog__button {
+    box-sizing: border-box;
+    min-height: 42px;
+    padding: 9px 14px;
+    border: 1px solid #535353;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.entry-dialog__button:hover {
+    border-color: #aaa;
+    background-color: #303030;
+    color: #ffffff;
+}
+
+.entry-dialog__button--primary {
+    border-color: #e5e5e5;
+    background-color: #e5e5e5;
+    color: #202020;
+}
+
+.entry-dialog__button--primary span {
+    margin-left: 8px;
+}
+
+.entry-dialog__button--primary:hover {
+    border-color: #fff;
+    background-color: #fff;
+    color: #202020;
+}
+
+.entry-dialog__button:focus-visible,
+.entry-dialog__close:focus-visible,
+.entry-form__tag input:focus-visible + span {
+    outline: 1px dashed #e5e5e5;
+    outline-offset: 3px;
+}
+
+/* Enter / leave transitions driven by Headless UI data attributes */
+.entry-dialog[data-enter] .entry-dialog__backdrop,
+.entry-dialog[data-closed] .entry-dialog__backdrop {
+    opacity: 0;
+}
+
+.entry-dialog[data-enter] .entry-dialog__panel,
+.entry-dialog[data-closed] .entry-dialog__panel {
+    opacity: 0;
+    transform: scale(95%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .entry-dialog,
+    .entry-dialog * {
+        transition: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .entry-dialog__backdrop {
+        padding: 16px;
+    }
+
+    .entry-dialog__panel {
+        padding: 20px;
+    }
+
+    .entry-form__row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+}
+
 /* Compact terminals */
 @media (max-width: 640px) {
     body {
@@ -340,6 +633,14 @@ section.weekly-goal::after {
 
     header.header {
         flex-wrap: wrap;
+    }
+
+    .entry-dialog__backdrop {
+        padding: 12px;
+    }
+
+    .entry-dialog__panel {
+        padding: 16px;
     }
 
     section.weekly-activity div.days {
