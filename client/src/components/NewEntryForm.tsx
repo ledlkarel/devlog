@@ -1,11 +1,29 @@
 import { Button, Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useState } from 'react'
+import entriesData from '../assets/data'
 
 export default function NewEntryForm() {
     const [isOpen, setIsOpen] = useState(false)
+    const [entries, setEntries] = useState(entriesData)
 
     function toggle() {
         setIsOpen(!isOpen)
+    }
+
+    function addEntry(formData: any) {
+        
+        const titleEntry = formData.get("title")
+        const timeEntry = formData.get("time")
+        const dateEntry = formData.get("date")
+        const tagsEntry = formData.get("tags")
+
+        const newEntry = {
+            titleEntry,
+            timeEntry,
+            dateEntry,
+            tagsEntry
+        }
+
     }
 
     return (
@@ -27,7 +45,7 @@ export default function NewEntryForm() {
                             <Description className="entry-dialog__text">
                                 Log your work. Keep the momentum going.
                             </Description>
-                            <form className="entry-form" onSubmit={(event) => event.preventDefault()}>
+                            <form action={addEntry} className="entry-form">
                                 <label className="entry-form__field" htmlFor="entry-title">
                                     What you worked on
                                     <input id="entry-title" name="title" type="text" placeholder="e.g. Built the dashboard" required data-autofocus />
