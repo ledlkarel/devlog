@@ -4,19 +4,15 @@ import { useState } from 'react'
 export default function NewEntryForm() {
     const [isOpen, setIsOpen] = useState(false)
 
-    function open() {
-        setIsOpen(true)
-    }
-
-    function close() {
-        setIsOpen(false)
+    function toggle() {
+        setIsOpen(!isOpen)
     }
 
     return (
         <>
-            <Button onClick={open}>+ New Entry</Button>
+            <Button onClick={toggle}>+ New Entry</Button>
 
-            <Dialog transition open={isOpen} as="div" className="entry-dialog" onClose={close}>
+            <Dialog transition open={isOpen} as="div" className="entry-dialog" onClose={toggle}>
                 <div className="entry-dialog__backdrop">
                     <div className="entry-dialog__center">
                         <DialogPanel className="entry-dialog__panel">
@@ -24,7 +20,7 @@ export default function NewEntryForm() {
                                 <DialogTitle as="h2" className="entry-dialog__title">
                                     New Entry
                                 </DialogTitle>
-                                <button type="button" className="entry-dialog__close" onClick={close} aria-label="Close new entry form">
+                                <button type="button" className="entry-dialog__close" onClick={toggle} aria-label="Close new entry form">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
@@ -64,7 +60,7 @@ export default function NewEntryForm() {
                                     </div>
                                 </fieldset>
                                 <div className="entry-dialog__actions">
-                                    <button type="button" className="entry-dialog__button" onClick={close}>Cancel</button>
+                                    <button type="button" className="entry-dialog__button" onClick={toggle}>Cancel</button>
                                     <button type="submit" className="entry-dialog__button entry-dialog__button--primary">Create entry <span aria-hidden="true">↵</span></button>
                                 </div>
                             </form>
