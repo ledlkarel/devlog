@@ -26,6 +26,7 @@ export default function NewEntryForm() {
         }
 
         newEntryFn(newEntry)
+        setIsOpen(!isOpen)
     }
 
     return (
