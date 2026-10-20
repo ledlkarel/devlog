@@ -1,12 +1,12 @@
-import entries from "../assets/data"
+import { dataEntriesStore, EntriesState } from "../App"
 import { EntryData } from "../types/entry"
 
-function descending() {
-    return entries.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+function descending(entries: any) {
+    return entries.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 
-function firstThree() {
-    const slicedArray = descending().slice(0, 3)
+function firstThree(entries: EntriesState) {
+    const slicedArray = descending(entries).slice(0, 3)
     return (
         slicedArray.map((entry: EntryData) => (
             <>
@@ -17,11 +17,13 @@ function firstThree() {
 }
 
 export default function RecenetEntries() {
+    const entries = dataEntriesStore((state: any) => state.entries)
+
     return (
         <section className="recent-entries">
             <h3>Recent Entries</h3>
             <div>
-                {firstThree()}
+                {firstThree(entries)}
             </div>
         </section>
     )

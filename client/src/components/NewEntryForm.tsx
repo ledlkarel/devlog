@@ -1,29 +1,31 @@
 import { Button, Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useState } from 'react'
-import entriesData from '../assets/data'
+import { dataEntriesStore } from '../App'
 
 export default function NewEntryForm() {
     const [isOpen, setIsOpen] = useState(false)
-    const [entries, setEntries] = useState(entriesData)
+    const data = dataEntriesStore((state: any) => state.entries)
+    const newEntryFn = dataEntriesStore((state: any) => state.setNewEntry)
 
     function toggle() {
         setIsOpen(!isOpen)
     }
 
     function addEntry(formData: any) {
-        
         const titleEntry = formData.get("title")
-        const timeEntry = formData.get("time")
+        const minutesEntry = formData.get("minutes")
         const dateEntry = formData.get("date")
-        const tagsEntry = formData.get("tags")
+        const tagsEntry = formData.getAll("tags")
 
         const newEntry = {
-            titleEntry,
-            timeEntry,
-            dateEntry,
-            tagsEntry
+            id: data.length + 1,
+            title: titleEntry,
+            minutes: Number(minutesEntry),
+            date: dateEntry,
+            tags: tagsEntry
         }
 
+        newEntryFn(newEntry)
     }
 
     return (
@@ -51,9 +53,9 @@ export default function NewEntryForm() {
                                     <input id="entry-title" name="title" type="text" placeholder="e.g. Built the dashboard" required data-autofocus />
                                 </label>
                                 <div className="entry-form__row">
-                                    <label className="entry-form__field" htmlFor="entry-time">
+                                    <label className="entry-form__field" htmlFor="entry-minutes">
                                         Minutes coded
-                                        <input id="entry-time" name="time" type="number" min="1" step="1" placeholder="60" required />
+                                        <input id="entry-minutes" name="minutes" type="number" min="1" step="1" placeholder="60" required />
                                     </label>
                                     <label className="entry-form__field" htmlFor="entry-date">
                                         Date
