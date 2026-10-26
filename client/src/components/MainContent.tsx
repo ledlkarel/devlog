@@ -1,8 +1,9 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, Outlet } from "react-router-dom"
 import Entries from "../pages/Entries"
 import Dashboard from "../pages/Dashboard"
 import Goals from "../pages/Goals"
 import Profile from "../pages/Profile"
+import Header from "./Header"
 
 export default function MainContent() {
     return (
@@ -13,12 +14,7 @@ export default function MainContent() {
                 <span className="stat">[ Entries: 12 ]</span>
                 <span className="stat">[ Best: 7d ]</span>
             </section>
-            <Routes>
-                <Route path="/" element={<Dashboard />}/>
-                <Route path="/entries" element={<Entries />} />
-                <Route path="/goals" element={<Goals />} />
-                <Route path="profile" element={<Profile />} />
-            </Routes>
+            <Outlet />
         </section>
     )
 }
