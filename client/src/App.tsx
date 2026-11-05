@@ -10,6 +10,7 @@ import Entries from "./pages/Entries"
 import Goals from "./pages/Goals"
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
+import { getEntries } from "./api/entries"
 
 export type EntriesState = {
   entries: EntryData[],
@@ -23,6 +24,7 @@ export const dataEntriesStore = create<EntriesState>((set) => ({
 
 function App() {
   useAuthSession()
+  getEntries()
 
   return (
     <BrowserRouter>

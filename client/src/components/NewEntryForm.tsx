@@ -4,7 +4,7 @@ import { dataEntriesStore } from '../App'
 
 export default function NewEntryForm() {
     const [isOpen, setIsOpen] = useState(false)
-    const data = dataEntriesStore((state: any) => state.entries)
+    // const data = dataEntriesStore((state: any) => state.entries)
     const newEntryFn = dataEntriesStore((state: any) => state.setNewEntry)
 
     function toggle() {
@@ -18,7 +18,7 @@ export default function NewEntryForm() {
         const tagsEntry = formData.getAll("tags")
 
         const newEntry = {
-            id: data.length + 1,
+            // id: data.length + 1,
             title: titleEntry,
             minutes: Number(minutesEntry),
             date: dateEntry,
