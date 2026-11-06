@@ -1,6 +1,6 @@
 import type { EntryData } from "../types/entry";
 
-type EntriesResponse = {
+export type EntriesResponse = {
     success: boolean
     data: EntryData[]
 }
@@ -13,6 +13,5 @@ export async function getEntries() {
     }
 
     const result: EntriesResponse = await response.json()
-    console.log(result)
     return result.data
 }

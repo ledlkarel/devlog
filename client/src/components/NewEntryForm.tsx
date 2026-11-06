@@ -1,6 +1,6 @@
 import { Button, Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useState } from 'react'
-import { dataEntriesStore } from '../App'
+import { dataEntriesStore } from '../pages/Dashboard'
 
 export default function NewEntryForm() {
     const [isOpen, setIsOpen] = useState(false)

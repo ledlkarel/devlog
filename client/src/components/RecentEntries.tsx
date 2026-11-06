@@ -1,4 +1,4 @@
-import { dataEntriesStore, EntriesState } from "../App"
+import { dataEntriesStore, EntriesState } from "../pages/Dashboard"
 import { EntryData } from "../types/entry"
 
 function descending(entries: any) {

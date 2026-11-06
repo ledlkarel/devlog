@@ -1,6 +1,5 @@
 import Entry from "../components/Entry";
-// import entries from "../assets/data"
-import { dataEntriesStore } from "../App";
+import { dataEntriesStore } from "./Dashboard";
 import { EntryData } from "../types/entry";
 
 export default function Entries() {

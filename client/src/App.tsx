@@ -1,7 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { create } from "zustand"
-import entriesData from './assets/data'
-import type { EntryData } from "./types/entry"
 import ProtectedRoute from "./components/ProtectedRoute"
 import { useAuthSession } from "./hooks/useAuthSession"
 import AppLayout from "./layouts/AppLayout"
@@ -10,21 +7,9 @@ import Entries from "./pages/Entries"
 import Goals from "./pages/Goals"
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
-import { getEntries } from "./api/entries"
-
-export type EntriesState = {
-  entries: EntryData[],
-  setNewEntry: (entry: EntryData) => void
-}
-
-export const dataEntriesStore = create<EntriesState>((set) => ({
-  entries: entriesData,
-  setNewEntry: (entry) => set((state) => ({ entries: [...state.entries, entry] }))
-}))
 
 function App() {
   useAuthSession()
-  getEntries()
 
   return (
     <BrowserRouter>
