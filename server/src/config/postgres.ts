@@ -1,5 +1,7 @@
 import 'dotenv/config';
-import {Pool} from "pg"
+import { Pool, types } from "pg"
+
+types.setTypeParser(1082, (value: string) => value);
 
 const requiredEnvVars = [
     'POSTGRES_HOST',
