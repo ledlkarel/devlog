@@ -3,10 +3,12 @@ import { create } from "zustand"
 
 type AuthState = {
   session: Session | null
+  initialized: boolean
   setSession: (session: Session | null) => void
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
   session: null,
-  setSession: (session) => set({ session }),
+  initialized: false,
+  setSession: (session) => set({ session, initialized: true }),
 }))
