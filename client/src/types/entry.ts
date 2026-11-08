@@ -1,5 +1,5 @@
 export type EntryData = {
-    id: number
+    id: string
     title: string
     minutes: number
     date: string
