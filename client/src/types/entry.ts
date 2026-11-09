@@ -3,5 +3,8 @@ export type EntryData = {
     title: string
     minutes: number
     date: string
-    tags: string[]
+    tags: string[],
+    user_id: string,
+    learned: string,
+    created_at: Date
 }

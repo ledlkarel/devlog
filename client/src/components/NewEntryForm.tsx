@@ -4,7 +4,6 @@ import { dataEntriesStore } from '../pages/Dashboard'
 
 export default function NewEntryForm() {
     const [isOpen, setIsOpen] = useState(false)
-    // const data = dataEntriesStore((state: any) => state.entries)
     const newEntryFn = dataEntriesStore((state: any) => state.setNewEntry)
 
     function toggle() {
